@@ -1,5 +1,5 @@
 from tkinter import Label, Tk 
-
+#nice work mate 
 import time
 
 app_window = Tk() 
