@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+#define mo 1000000007
+#define ll long long int
+#define pb push_back
+#define pob pop_back
+using namespace std;
+ll binarySearch(ll arr[], ll l, ll r, ll x)
+{
+    if (r >= l) 
+    {
+        ll mid = l + (r - l) / 2;
+        if (arr[mid] == x)
+        return mid;
+        if (arr[mid] > x)
+        return binarySearch(arr, l, mid - 1, x);
+
+        return binarySearch(arr, mid + 1, r, x);
+    }
+    return -1;
+}
+void solve()
+{
+    cout<<"Enter the number of elments in the array"<<"\n";
+    ll n;
+    cin>>n;
+    ll a[n];
+    cout<<"Enter the elments of the array in sorted order"<<"\n";
+    for(ll i=0;i<n;i++)
+    cin>>a[i];
+    cout<<"Enter the elments to be searched"<<"\n";
+    ll x;
+    cin>>x;
+    if(binarySearch(a,0,n-1,x)==-1)
+    cout<<"Element Not present"<<"\n";
+    else
+    cout<<"Element present in the array"<<"\n";
+
+}
+int main()
+{
+    solve();
+    return 0;
+}
