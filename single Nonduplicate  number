@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int singleNonDuplicate(vector<int>& nums) {
+//calculating occurence of each number in nums using map
+    map<int,int> m;int k=0;
+    for(int i=0;i<nums.size();i++){
+        m[nums[i]]++;
+    }
+    //store the number which have single occurence
+for(auto p:m){
+    if(p.second==1)
+    k=p.first;
+}
+return k;
+}
+int main(){
+    int n,x;
+    vector<int> v;
+    cout<<"number of elements in the vector";
+    cin>>n;
+    //enter the numbers in vector from which we have to find single number
+    for(int i=0;i<n;i++){
+        cin>>x;
+        v.push_back(x);
+        
+    }
+    //call the function
+cout<<singleNonDuplicate(v);
+return 0;}
