@@ -1,0 +1,24 @@
+''' Q. There are Infinite People Standing in a row, indexed from 1.
+A person having index 'i' has strength of (i*i).
+You have Strength 'P'. You need to tell what is the maximum number of People You can Kill With your Strength P.
+You can only Kill a person with strength 'X' if P >= 'X'  and after killing him, Your Strength decreases by 'X'. '''
+
+#solution :
+
+import math
+class Solution:
+    def killinSpree (self, n):
+        # code here
+        low = 1
+        high = 1000000
+        #print(high)
+        count = 0
+        while(low<=high):
+            mid = low+(high-low)//2
+            val = mid*(mid+1)*(2*mid+1)//6
+            if val <= n:
+                ans = mid
+                low = mid+1
+            else:
+                high = mid-1
+        return ans
